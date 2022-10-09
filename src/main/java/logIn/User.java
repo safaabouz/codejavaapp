@@ -1,6 +1,5 @@
 package logIn;
 
-import java.util.ArrayList;
 
 public class User {
 

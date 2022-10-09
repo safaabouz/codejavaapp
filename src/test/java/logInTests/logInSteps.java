@@ -1,5 +1,7 @@
 package logInTests;
 
+import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList;
 
 import io.cucumber.java.en.Given;
@@ -30,7 +32,7 @@ public class logInSteps {
 
 	@Then("login succeeds")
 	public void login_succeeds() {
-	  
+	  assertTrue(correctPass);
 	}
 
 	@Then("the user logged in")

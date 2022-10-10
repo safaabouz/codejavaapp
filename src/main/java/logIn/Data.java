@@ -10,22 +10,24 @@ public class Data {
 	
 	
 
-	public static int checkIdIsAvailable(int id) {
+	public static boolean checkIdIsAvailable(int id) {
 		for(int i=0;i<user.size();i++) {
 			if(user.get(i).id==id) {
-				idIndex=i;
-				break;
+				return true;
 				
 			}
 		}
-		return idIndex;
+		return false;
 	}
 
-	public static boolean checkPassIsMatching(int availableId1, String pass1) {
-		if(user.get(availableId1).pass.equals(pass1)) 
-		return true;
-		else return false;
-		
+	public static boolean checkPassIsMatching(int id, String pass1) {
+		for(int i=0;i<user.size();i++) {
+			if(user.get(i).pass.equals(pass1)) {
+				return true;
+				
+			}
+		}
+		return false;
 	}
 
 }

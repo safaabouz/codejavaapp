@@ -1,5 +1,6 @@
 package logInTests;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.util.*;
@@ -20,58 +21,21 @@ public class logInSteps {
 	void logInSteps(User user1) {
 		this.user = user1;
 	}
-	/*@Given("the User is on loginPage")
-	public void theUserIsOnLoginPage() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-	@When("the User enters {int} and {String} ")
-	public void theUserEntersAndA2d1m4in3(Integer id1,String pass) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-	@Then("the User should land on Admin Page")
-	public void theUserShouldLandOnAdminPage() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-
-
-*/
-	/*@Given("that the admin is not logged in")
-	public void thatTheAdminIsNotLoggedIn() {
-	    // Write code here that turns the phrase above into concrete actions
-		user.setLogState(false);
-	}
-	@Given("the id is {int} and password is {string}")
-	public void theUsernameIsAndPasswordIs(int i, String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	    id = i;
-	    pass = string;
-	}
-	@Then("the admin logs in to Admin Page")
-	public void theAdminLogsInToAdminPage() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-	@Then("the admin is logged in")
-	public void theAdminIsLoggedIn() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-
-*/
+	
 	 private ClinicUsers clinic;
-	    private List<User> foundUsers;
+	 private List<User> foundUsers;
 	    
 	    @Before
 	    public void setUp() {
+	    	//System.out.println("setup");
 	    	clinic = new ClinicUsers();
 	    	foundUsers = new ArrayList();
+	    	user = new User();
 	    }
 
 	@Given("I have the following users in my clinic by list")
 	public void iHaveTheFollowingUsersInMyClinicByList(io.cucumber.datatable.DataTable dataTable) {
+		//System.out.println("hi");
 	    // Write code here that turns the phrase above into concrete actions
 	    // For automatic transformation, change DataTable to one of
 	    // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
@@ -91,22 +55,62 @@ public class logInSteps {
 	    // Write code here that turns the phrase above into concrete actions
 		user.setLogState(false);
 	}
-	@Given("the username is {string} and password is {string}")
-	public void theIdIsAndPasswordIs(String string1, String string2) {
+
+
+	@Given("the id is {string} and password is {string}")
+	public void theIdIsAndPasswordIs(String string, String string2) {
 	    // Write code here that turns the phrase above into concrete actions
-	   pass=string2;
-	   username=string1;
+		   pass=string2;
+		   username=string;
 	}
+
+
+
+
 	@Then("the admin login succeeds")
 	public void theAdminLoginSucceeds() {
 	    // Write code here that turns the phrase above into concrete actions
-	   
+		User u = clinic.findUser(username, pass);
+		boolean succeeds;
+		if(u !=null) {
+		user = u;
+		user.login();
+		succeeds=true;	
+		}
+		else {
+			succeeds=false;
+		}
+
+		assertTrue(succeeds);
 	}
 	@Then("the admin is logged in")
 	public void theAdminIsLoggedIn() {
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+		assertTrue(user.getLogState());
 	}
+
+	@Then("the user login fails")
+	public void theUserLoginFails() {
+	    // Write code here that turns the phrase above into concrete actions
+		User u = clinic.findUser(username, pass);
+		boolean succeeds;
+		if(u !=null) {
+		user = u;
+		user.login();
+		succeeds=true;	
+		}
+		else {
+			succeeds=false;
+		}
+		assertFalse(succeeds);
+	}
+	@Then("the user is not logged in")
+	public void theUserIsNotLoggedIn() {
+	    // Write code here that turns the phrase above into concrete actions
+		assertFalse(user.getLogState());
+	}
+
+
 
 
 

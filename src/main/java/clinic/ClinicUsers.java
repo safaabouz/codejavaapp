@@ -16,14 +16,20 @@ public class ClinicUsers {
      this.users.addAll(userss);
  }	 
  
- public boolean findUser(String username,String pass) {
-	 User u = new User(username,pass);
-	 boolean available = false;
-    for(int i=0;i<users.size(); i++) {
-    	if(users.get(i).equals(u))
-    		available = true;
-    		break;
-    }
-       return available;
- }
+ public User findUser(String username,String pass) {
+	 User u = null ;
+	 
+//		int available = -1;
+	    for(int i=0;i<users.size(); i++) {
+	    	if(users.get(i).pass.equals(pass) && users.get(i).username.equals(username) ) {
+	    		System.out.println("The User is Found");
+	    		u=users.get(i);  	   
+	    		break;
+	    		}
+	    }
+	    if(u== null) {
+	    	System.out.println("User not Found");
+	    }
+	       return u;
+	 }
 }

@@ -2,90 +2,112 @@ package logInTests;
 
 import static org.junit.Assert.assertTrue;
 
+import java.util.*;
 
-import java.util.ArrayList;
-
+import clinic.ClinicUsers;
+import clinic.User;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import logIn.Data;
+import io.cucumber.java.en.When;
+
 
 public class logInSteps {
-
-	boolean availableId;
-	boolean correctPass;
-	
-
-
-	int id;
-	 String pass;
-
-	@Given("that username is available")
-	public void that_username_is_available() {
-	 availableId=Data.checkIdIsAvailable( id);
+		
+	public User user;
+	public String pass;
+	public String username;
+	void logInSteps(User user1) {
+		this.user = user1;
+	}
+	/*@Given("the User is on loginPage")
+	public void theUserIsOnLoginPage() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	@When("the User enters {int} and {String} ")
+	public void theUserEntersAndA2d1m4in3(Integer id1,String pass) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	@Then("the User should land on Admin Page")
+	public void theUserShouldLandOnAdminPage() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
 	}
 
-	@Given("passowrd is correct")
-	public void passowrd_is_correct() {
-     correctPass=Data.checkPassIsMatching( id,pass);
 
+*/
+	/*@Given("that the admin is not logged in")
+	public void thatTheAdminIsNotLoggedIn() {
+	    // Write code here that turns the phrase above into concrete actions
+		user.setLogState(false);
+	}
+	@Given("the id is {int} and password is {string}")
+	public void theUsernameIsAndPasswordIs(int i, String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    id = i;
+	    pass = string;
+	}
+	@Then("the admin logs in to Admin Page")
+	public void theAdminLogsInToAdminPage() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	@Then("the admin is logged in")
+	public void theAdminIsLoggedIn() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
 	}
 
-	@Then("login succeeds")
-	public void login_succeeds() {
-	  assertTrue(correctPass && correctPass);
+*/
+	 private ClinicUsers clinic;
+	    private List<User> foundUsers;
+	    
+	    @Before
+	    public void setUp() {
+	    	clinic = new ClinicUsers();
+	    	foundUsers = new ArrayList();
+	    }
+
+	@Given("I have the following users in my clinic by list")
+	public void iHaveTheFollowingUsersInMyClinicByList(io.cucumber.datatable.DataTable dataTable) {
+	    // Write code here that turns the phrase above into concrete actions
+	    // For automatic transformation, change DataTable to one of
+	    // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
+	    // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
+	    // Double, Byte, Short, Long, BigInteger or BigDecimal.
+	    //
+	    // For other transformations you can register a DataTableType.
+	    List<List<String>> rows = dataTable.asLists(String.class);
+	    
+	    
+	    for (List<String> columns : rows) {
+	    	clinic.addUser(new User(columns.get(0), columns.get(1),Integer.parseInt(columns.get(2))));
+	    }
 	}
-	
-	//2
-	
-	@Given("that username is correct")
-	public void that_username_is_correct() {
-	 availableId=Data.checkIdIsAvailable( id);
+	@Given("that the user is not logged in")
+	public void thatTheUserIsNotLoggedIn() {
+	    // Write code here that turns the phrase above into concrete actions
+		user.setLogState(false);
+	}
+	@Given("the username is {string} and password is {string}")
+	public void theIdIsAndPasswordIs(String string1, String string2) {
+	    // Write code here that turns the phrase above into concrete actions
+	   pass=string2;
+	   username=string1;
+	}
+	@Then("the admin login succeeds")
+	public void theAdminLoginSucceeds() {
+	    // Write code here that turns the phrase above into concrete actions
+	   
+	}
+	@Then("the admin is logged in")
+	public void theAdminIsLoggedIn() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
 	}
 
-	@Given("passowrd is not correct")
-	public void passowrd_not_is_correct() {
-     correctPass=Data.checkPassIsMatching( id ,pass);
 
-	}
 
-	@Then("login fails wrong password")
-	public void login_fails_wrong_password() {
-	  assertTrue(!correctPass && availableId );
-	}
-	
-	//3
-	
-	@Given("that username is not correct")
-	public void that_username_is_not_correct() {
-	 availableId=Data.checkIdIsAvailable( id);
-	}
-
-	@Given("passowrd is correct")
-	public void passowrd_is_correctt() {
-     correctPass=Data.checkPassIsMatching( id ,pass);
-
-	} 
-	
-	@Then("login fails no user")
-	public void login_fails_no_user() {
-	  assertTrue(correctPass && !availableId );
-	}
-	
-	//4
-	
-	@Given("that username is not correct")
-	public void that_username_is_not_correctt() {
-	 availableId=Data.checkIdIsAvailable( id);
-	}
-
-	@Given("passowrd is not correct")
-	public void passowrd_is_not_correctt() {
-     correctPass=Data.checkPassIsMatching( id ,pass);
-
-	} 
-	
-	@Then("login fails")
-	public void login_fails() {
-	  assertTrue(!correctPass && !availableId );
-	}
 }

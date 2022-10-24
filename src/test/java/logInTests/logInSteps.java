@@ -60,10 +60,18 @@ public class logInSteps {
 	@Given("the id is {string} and password is {string}")
 	public void theIdIsAndPasswordIs(String string, String string2) {
 	    // Write code here that turns the phrase above into concrete actions
-		   pass=string2;
-		   username=string;
+		 pass=string2;
+		 username=string;
 	}
 
+
+
+	/*@Given("the username is {string} and password is {string}")
+	public void theIdIsAndPasswordIs(String string, String string2) {
+	    // Write code here that turns the phrase above into concrete actions
+		  
+	}
+*/
 
 
 

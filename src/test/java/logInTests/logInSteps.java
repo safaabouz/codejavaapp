@@ -5,7 +5,10 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.*;
 
+import clinic.Admin;
 import clinic.ClinicUsers;
+import clinic.Doctor;
+import clinic.Patient;
 import clinic.User;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -47,7 +50,10 @@ public class logInSteps {
 	    
 	    
 	    for (List<String> columns : rows) {
-	    	clinic.addUser(new User(columns.get(0), columns.get(1),Integer.parseInt(columns.get(2))));
+	    	User u =new User(columns.get(0), columns.get(1));
+	    	clinic.addUser(u);
+	    	int type = u.getType();
+	    	clinic.genUsersTypes(type,columns.get(0), columns.get(1));
 	    }
 	}
 	@Given("that the user is not logged in")

@@ -5,21 +5,13 @@ public class User {
 	String username;
 	String pass;
 	boolean logState;
-	int type;
+
 	
-public User(String username1,String pass1,int type1){
-	
-	username=username1;
-	pass=pass1;
-	logState=false;
-	type =type1;
-}
 public User(String username1,String pass1){
 	
 	username=username1;
 	pass=pass1;
 	logState=false;
-	type =-1;
 }
 public User() {
 	// TODO Auto-generated constructor stub
@@ -34,7 +26,8 @@ if(this.getLogState())	{
 }
 else {	
 	this.setLogState(true);
-	switch(this.type) {
+	int type =this.getType();
+	switch(type) {
 	case 1:
 		System.out.println("logging in into Admin Page");
 		break;
@@ -52,6 +45,48 @@ public boolean getLogState() {
 	return this.logState;
 }
 
+public int getType() {
+if(this.isPatientFormate()) {
+	return 3;
+}
+else if(this.isDoctorFormate()) {
+	return 2;
+}
+else if(this.isAdminFormate()) {
+	return 1;
+}
+return -1;
+}
 
+
+private boolean isAdminFormate() {
+	if(username.length()==1) {
+		return true;
+	}
+	else return false;
+}
+private boolean isDoctorFormate() {
+	if(username.length()==4) {
+		return true;
+	}
+	else return false;
+}
+
+private boolean isPatientFormate() {
+		char [] chars = username.toCharArray();
+		for(int i=0;i<chars.length;i++) {
+			
+		if(	Character.isAlphabetic(chars[i])) {
+			return true;
+		}
+			
+		}
+		return false;
+		}
 
 }
+
+
+
+
+

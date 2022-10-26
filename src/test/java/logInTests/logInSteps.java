@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.*;
 
 import clinic.Admin;
-import clinic.ClinicUsers;
+import clinic.MyClinic;
 import clinic.Doctor;
 import clinic.Patient;
 import clinic.User;
@@ -25,13 +25,13 @@ public class logInSteps {
 		this.user = user1;
 	}
 	
-	 private ClinicUsers clinic;
+	//MyClinic clinic;
 	 private List<User> foundUsers;
 	    
 	    @Before
 	    public void setUp() {
 	    	//System.out.println("setup");
-	    	clinic = new ClinicUsers();
+	    	//clinic = new MyClinic();
 	    	foundUsers = new ArrayList();
 	    	user = new User();
 	    }
@@ -51,9 +51,9 @@ public class logInSteps {
 	    
 	    for (List<String> columns : rows) {
 	    	User u =new User(columns.get(0), columns.get(1));
-	    	clinic.addUser(u);
+	    	MyClinic.users.add(u);
 	    	int type = u.getType();
-	    	clinic.genUsersTypes(type,columns.get(0), columns.get(1));
+	    	MyClinic.genUsersTypes(type,columns.get(0), columns.get(1));
 	    }
 	}
 	@Given("that the user is not logged in")
@@ -84,7 +84,7 @@ public class logInSteps {
 	@Then("the admin login succeeds")
 	public void theAdminLoginSucceeds() {
 	    // Write code here that turns the phrase above into concrete actions
-		User u = clinic.findUser(username, pass);
+		User u = MyClinic.findUser(username, pass);
 		boolean succeeds;
 		if(u !=null) {
 		user = u;
@@ -106,7 +106,7 @@ public class logInSteps {
 	@Then("the user login fails")
 	public void theUserLoginFails() {
 	    // Write code here that turns the phrase above into concrete actions
-		User u = clinic.findUser(username, pass);
+		User u = MyClinic.findUser(username, pass);
 		boolean succeeds;
 		if(u !=null) {
 		user = u;

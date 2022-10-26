@@ -6,4 +6,8 @@ public class Admin extends User {
 	super(string,string2);
 	}
 
+	public Admin() {
+		// TODO Auto-generated constructor stub
+	}
+
 }

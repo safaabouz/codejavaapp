@@ -83,6 +83,10 @@ private boolean isPatientFormate() {
 		}
 		return false;
 		}
+public void logout() {
+	// TODO Auto-generated method stub
+	System.out.println("This User is logging out");	
+}
 
 }
 

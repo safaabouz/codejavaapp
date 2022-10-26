@@ -35,9 +35,8 @@ public class trackAppointmentsSteps {
 	*/
     @Given("that the administrator with username {string} is logged in")
     public void that_the_administrator_with_username_is_logged_in(String string) {
-    	System.out.println("Hello");
+    
        admin= MyClinic.getAdmin(string);
-       System.out.println("admin"+admin.getLogState());
        admin.setLogState(true);
     }
 
@@ -56,7 +55,7 @@ public class trackAppointmentsSteps {
 
 	@Then("he will get a null value")
 	public void he_will_get_a_null_value() {
-		
+		System.out.println("No Booked Appointments for this patient");
 	   assertNull(appointments);
 	}
 

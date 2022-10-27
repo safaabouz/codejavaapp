@@ -5,7 +5,10 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.*;
 
-import clinic.ClinicUsers;
+import clinic.Admin;
+import clinic.MyClinic;
+import clinic.Doctor;
+import clinic.Patient;
 import clinic.User;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -22,13 +25,13 @@ public class logInSteps {
 		this.user = user1;
 	}
 	
-	 private ClinicUsers clinic;
+	//MyClinic clinic;
 	 private List<User> foundUsers;
 	    
 	    @Before
 	    public void setUp() {
 	    	//System.out.println("setup");
-	    	clinic = new ClinicUsers();
+	    	//clinic = new MyClinic();
 	    	foundUsers = new ArrayList();
 	    	user = new User();
 	    }
@@ -47,7 +50,10 @@ public class logInSteps {
 	    
 	    
 	    for (List<String> columns : rows) {
-	    	clinic.addUser(new User(columns.get(0), columns.get(1),Integer.parseInt(columns.get(2))));
+	    	User u =new User(columns.get(0), columns.get(1));
+	    	MyClinic.users.add(u);
+	    	int type = u.getType();
+	    	MyClinic.genUsersTypes(type,columns.get(0), columns.get(1));
 	    }
 	}
 	@Given("that the user is not logged in")
@@ -60,17 +66,25 @@ public class logInSteps {
 	@Given("the id is {string} and password is {string}")
 	public void theIdIsAndPasswordIs(String string, String string2) {
 	    // Write code here that turns the phrase above into concrete actions
-		   pass=string2;
-		   username=string;
+		 pass=string2;
+		 username=string;
 	}
 
+
+
+	/*@Given("the username is {string} and password is {string}")
+	public void theIdIsAndPasswordIs(String string, String string2) {
+	    // Write code here that turns the phrase above into concrete actions
+		  
+	}
+*/
 
 
 
 	@Then("the admin login succeeds")
 	public void theAdminLoginSucceeds() {
 	    // Write code here that turns the phrase above into concrete actions
-		User u = clinic.findUser(username, pass);
+		User u = MyClinic.findUser(username, pass);
 		boolean succeeds;
 		if(u !=null) {
 		user = u;
@@ -92,7 +106,7 @@ public class logInSteps {
 	@Then("the user login fails")
 	public void theUserLoginFails() {
 	    // Write code here that turns the phrase above into concrete actions
-		User u = clinic.findUser(username, pass);
+		User u = MyClinic.findUser(username, pass);
 		boolean succeeds;
 		if(u !=null) {
 		user = u;

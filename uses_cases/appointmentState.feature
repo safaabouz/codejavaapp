@@ -4,6 +4,7 @@ Scenario: The patient came to his appointment
         Given the patient booked an appointment
         And the patient came to his appointment
         Then the visit state will be converted to visited
+        And the visit notes will be added
         
       
 Scenario: The patient booked an appointment, the appointment does not came yet

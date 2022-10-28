@@ -3,7 +3,7 @@ package clinic;
 import java.util.List;
 
 public class Patient extends User {
-	List<Appointment> appointments;
+	List<PatientAppointment> appointments;
 	List<Appointment> visits;
 	public Contact contact;
 
@@ -16,7 +16,7 @@ public class Patient extends User {
 		// TODO Auto-generated constructor stub
 	}
 
-	public List<Appointment> getAppointments() {
+	public List<PatientAppointment> getAppointments() {
 		// TODO Auto-generated method stub
 		return this.appointments;
 	}

@@ -1,6 +1,6 @@
 package clinic;
 
-public enum AppointmentState {
+public enum PatientAppointmentState {
 	Visit,
 	Booked,
 	Missed

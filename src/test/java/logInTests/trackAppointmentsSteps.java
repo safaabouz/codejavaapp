@@ -10,6 +10,7 @@ import clinic.Admin;
 import clinic.Appointment;
 import clinic.MyClinic;
 import clinic.Patient;
+import clinic.PatientAppointment;
 import clinic.User;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -20,7 +21,7 @@ public class trackAppointmentsSteps {
 	Admin admin = new Admin();;
 	Patient patient  = new Patient();;
 	//public MyClinic c = new MyClinic();
-	List <Appointment> appointments  = new ArrayList<Appointment>();;
+	List <PatientAppointment> appointments  = new ArrayList<PatientAppointment>();;
 	
 	   
 	   /* public void trackAppointmentsSteps() {

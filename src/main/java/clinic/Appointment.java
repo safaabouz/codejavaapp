@@ -8,5 +8,5 @@ public class Appointment {
 	LocalDateTime date ;
 	String note;
 	Doctor doctor;
-	AppointmentState state;
+
 }

@@ -10,6 +10,7 @@ public class MyClinic {
  public static List<Admin> admins=new ArrayList();
  public static List<Doctor> doctors=new ArrayList();
  public static List<Patient> patients=new ArrayList();
+ public static  List<Contact> contacts=new ArrayList();
  
  public static void addUser(User user) {
      users.add(user);
@@ -86,6 +87,27 @@ public static Patient getPatient(String string) {
 		}
 	}
 	return null;
+}
+
+public static int findPatientIndex(String username) {
+	int index=-1;
+	for(int i= 0;i<patients.size();i++) {
+		if(patients.get(i).username.equals(username)) {
+			index = i;
+		}
+	}
+	return index;
+}
+
+public static int findDoctorIndex(String username) {
+	// TODO Auto-generated method stub
+	int index=-1;
+	for(int i= 0;i<doctors.size();i++) {
+		if(doctors.get(i).username.equals(username)) {
+			index = i;
+		}
+	}
+	return index;
 }
 
 

@@ -5,6 +5,7 @@ import java.util.List;
 public class Patient extends User {
 	List<Appointment> appointments;
 	List<Appointment> visits;
+	public Contact contact;
 
 	public Patient(String string, String string2) {
 		// TODO Auto-generated constructor stub

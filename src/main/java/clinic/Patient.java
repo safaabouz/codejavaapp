@@ -2,9 +2,14 @@ package clinic;
 
 import java.util.List;
 
+
+
 public class Patient extends User {
+	
 	List<PatientAppointment> appointments;
 	List<Appointment> visits;
+	List<Medicine> medicines;
+
 	public Contact contact;
 
 	public Patient(String string, String string2) {

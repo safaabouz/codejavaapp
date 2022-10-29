@@ -11,6 +11,7 @@ public class MyClinic {
  public static List<Doctor> doctors=new ArrayList();
  public static List<Patient> patients=new ArrayList();
  public static  List<Contact> contacts=new ArrayList();
+ public static List<Medicine>medicines=new ArrayList();
  
  public static void addUser(User user) {
      users.add(user);
@@ -47,7 +48,11 @@ public static void addDoctor(Doctor d) {
 }
 
 public static void addPatient(Patient p) {
-	patients.add(p);
+	patients.add(p);}
+
+
+public static void addMedicine(Medicine m) {
+		medicines.add(m);
 	
 }
 
@@ -64,7 +69,11 @@ public static void genUsersTypes(int type,String string, String string2) {
 	case 3:
 		Patient p = new Patient(string, string2);
 		addPatient(p);
-		break;				
+		break;			
+	case 4:
+		Medicine m = new Medicine(string, string2,string,string,string);
+		addMedicine(m);
+		break;		
 		}
 	
 }
@@ -109,6 +118,33 @@ public static int findDoctorIndex(String username) {
 	}
 	return index;
 }
+
+public static Patient getmedicine(String med_name, String med_cost,String username,String pass,String exp_date,String comp_name) {
+	// TODO Auto-generated method stub
+	Patient p= null ;
+	Medicine m=null;
+	
+	 
+//	int available = -1;
+    for(int i=0;i<medicines.size(); i++) {
+    	for(int j=0;j<patients.size(); j++) {
+    	if(patients.get(j).pass.equals(pass) && patients.get(j).username.equals(username)&&medicines.get(i).med_cost.equals(med_cost) 
+    		&&medicines.get(i).med_name.equals(med_name)	) {
+    		System.out.println("The User is Found");
+    		
+    		p=patients.get(j); 
+    		break;
+    		}
+    	m=medicines.get(i);
+    	break;
+    }
+    }
+    if(m== null) {
+    	System.out.println("patient not get medicine");
+    }
+       return p;
+ }
+	
 
 
 }

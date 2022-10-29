@@ -1,7 +1,7 @@
 Feature: Patient bill
 Actors: Patient
 
-Scenario: patient with no visit appointments
+Scenario: patient with missed appointments
  	Given that the administrator with username "1" is logged in
  	And there is a registered patient with username "user12"
  	When  the patient did not visit the doctor on time

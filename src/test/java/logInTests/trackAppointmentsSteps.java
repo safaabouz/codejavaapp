@@ -1,6 +1,9 @@
 package logInTests;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import java.awt.print.Printable;
 import java.util.ArrayList;
@@ -18,8 +21,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class trackAppointmentsSteps {
-	Admin admin = new Admin();;
-	Patient patient  = new Patient();;
+	Admin admin = new Admin();
+	Patient patient  = new Patient();
 	//public MyClinic c = new MyClinic();
 	List <PatientAppointment> appointments  = new ArrayList<PatientAppointment>();;
 	
@@ -56,8 +59,24 @@ public class trackAppointmentsSteps {
 
 	@Then("he will get a null value")
 	public void he_will_get_a_null_value() {
+		boolean isNull = false;
 		System.out.println("No Booked Appointments for this patient");
-	   assertNull(appointments);
+		if(appointments.isEmpty()) isNull=true;
+	    assertTrue(isNull);
 	}
-
+	@Then("he will get a record for the patient")
+	public void he_will_get_a_record_for_the_patient() {
+	    // Write code here that turns the phrase above into concrete actions
+		boolean isNull = false;
+		if(appointments.isEmpty()) isNull=true;
+	    assertFalse(isNull);
+		System.out.println("This is the Appointments List for this patient");
+		for(int i=0;i<appointments.size();i++) {
+			System.out.print(appointments.get(i).getLocalDate());
+			System.out.print("          ");
+			System.out.println(appointments.get(i).getLocalTime());
+		}
+		
+		
+	}
 }

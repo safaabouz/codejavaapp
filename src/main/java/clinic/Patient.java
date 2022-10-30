@@ -1,12 +1,13 @@
 package clinic;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 
 public class Patient extends User {
 	
-	List<PatientAppointment> appointments;
+	List<PatientAppointment> appointments = new ArrayList<PatientAppointment>();
 	List<Appointment> visits;
 	List<Medicine> medicines;
 

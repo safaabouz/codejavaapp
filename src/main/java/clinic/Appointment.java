@@ -18,6 +18,22 @@ public class Appointment {
 		this.note = note;
 		this.doctor = doctor;
 	}
+	public LocalTime getLocalTime() {
+		return time;
+	}
 	
-
+	public LocalDate getLocalDate() {
+		return date;
+	}
+	
+	public Appointment() {
+	
+	}
+	public Appointment(LocalDate date, LocalTime time, Doctor doctor) {
+		this.date = date;
+		this.time = time;
+		this.doctor = doctor;
+	}
+	
+	
 }

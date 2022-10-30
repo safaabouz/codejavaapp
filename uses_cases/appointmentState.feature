@@ -15,5 +15,5 @@
 #Scenario: The patient booked an appointment, but he did not came
    #     Given the patient booked an appointment
     #    And the appointment out of date without visiting 
-     #   Then the visit state will be converted to out of date
+     #   Then the visit state will be converted to missed
         

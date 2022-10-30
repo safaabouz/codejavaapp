@@ -2,5 +2,9 @@ package clinic;
 
 public enum DoctorAppointmentState {
 	Booked,
-	Avialable
+	Avialable,
+    Visited,
+    Waiting,
+    Missed
+    
 }

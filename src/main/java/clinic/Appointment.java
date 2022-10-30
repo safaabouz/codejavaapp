@@ -21,7 +21,7 @@ public class Appointment {
 	public LocalTime getLocalTime() {
 		return time;
 	}
-	
+
 	public LocalDate getLocalDate() {
 		return date;
 	}

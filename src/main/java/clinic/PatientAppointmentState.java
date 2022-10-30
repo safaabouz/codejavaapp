@@ -27,4 +27,6 @@ public enum PatientAppointmentState {
 	        else
 	            return null;
 	    }
+
 }
+

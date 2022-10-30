@@ -49,7 +49,164 @@ public class medicineSteps {
 		return this.Patients;
 	}
 
+   
+	
+	
 
+	@Given("The patient is successfully entered")
+	public void the_patient_is_successfully_entered() {
+		assertTrue(patient.getLogState());
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Given("the information of that patient is {string} , {string} respectively")
+	public void the_information_of_that_patient_is_respectively(String string, String string2) {
+		String	pass=string2;
+		String	 username=string;
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("the patient get medicine succeeds")
+	public void the_patient_get_medicine_succeeds() {
+		
+		
+		Patient p = MyClinic.getmedicine(med_name,med_cost, username,pass,exp_date,comp_name );
+		boolean succeeds;
+		if(p !=null) {
+	    patient =p;
+	    patient.login();
+		succeeds=true;	
+		}
+		else {
+			succeeds=false;}
+		assertTrue(succeeds);
+	
+			
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Given("The patient is failed entered")
+	public void the_patient_is_failed_entered() {
+		assertFalse(patient.getLogState());
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("the patient don't get medicine succeeds and return null")
+	public void the_patient_don_t_get_medicine_succeeds_and_return_null() {
+		System.out.println("No get medicine for this patient");
+		   assertNull(medicines);
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 @Given("I have the following medicine in my clinic by list")
 public void i_have_the_following_medicine_in_my_clinic_by_list(io.cucumber.datatable.DataTable dataTable) {
@@ -72,9 +229,9 @@ public void i_have_the_following_medicine_in_my_clinic_by_list(io.cucumber.datat
    // throw new io.cucumber.java.PendingException();}
 }
 
-@Given("that the patient is logged in")
-public void that_the_patient_is_logged_in() {
-	assertTrue(patient.getLogState());
+//@Given("that the patient is logged in")
+//public void that_the_patient_is_logged_in() {
+//	assertTrue(patient.getLogState());
 
     // Write code here that turns the phrase above into concrete actions
  //   throw new io.cucumber.java.PendingException();
@@ -88,7 +245,7 @@ String	 username=string;
     //throw new io.cucumber.java.PendingException();
 }*/
 
-@Then("the patient get medicine succeeds")
+/*@Then("the patient get medicine succeeds")
 public void the_patient_get_medicine_succeeds() {
 	Patient p = MyClinic.getmedicine(med_name,med_cost, username,pass,exp_date,comp_name );
 	boolean succeeds;
@@ -99,7 +256,7 @@ public void the_patient_get_medicine_succeeds() {
 	}
 	else {
 		succeeds=false;
-	}
+	}*/
 
 	
 
@@ -108,19 +265,19 @@ public void the_patient_get_medicine_succeeds() {
 
     // Write code here that turns the phrase above into concrete actions
     //throw new io.cucumber.java.PendingException();
-}
+//}
 
-@Given("that the patient is not logged in")
+/*@Given("that the patient is not logged in")
 public void that_the_patient_is_not_logged_in() {
 	assertFalse(patient.getLogState());
     // Write code here that turns the phrase above into concrete actions
    // throw new io.cucumber.java.PendingException();
-}
+}*/
 
-@Then("the patient don't get medicine succeeds and return null")
+/*@Then("the patient don't get medicine succeeds and return null")
 public void the_patient_don_t_get_medicine_succeeds_and_return_null() {
 	System.out.println("No get medicine for this patient");
 	   assertNull(medicines);
     // Write code here that turns the phrase above into concrete actions
   //throw new io.cucumber.java.PendingException();
-}}
+}}*/

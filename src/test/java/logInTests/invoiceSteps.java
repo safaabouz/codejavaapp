@@ -27,6 +27,44 @@ public class invoiceSteps {
 	//public MyClinic c = new MyClinic();
 	List <Invoice> invoices  = new ArrayList<Invoice>();;
 	
+	
+	@Given("that the User have an appointment on {string}")
+	public void that_the_user_have_an_appointment_on(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Given("the appointment has {string} service")
+	public void the_appointment_has_service(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("the invoice value is the sum of doctorcost and medcost")
+	public void the_invoice_value_is_the_sum_of_doctorcost_and_medcost() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("the invoice generated successfully")
+	public void the_invoice_generated_successfully() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("the invoice value is the doctorcost {string}")
+	public void the_invoice_value_is_the_doctorcost(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("the invoice value is {string}")
+	public void the_invoice_value_is(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	
 
 
 
@@ -49,7 +87,7 @@ public void there_is_a_registered_patient_with_username(String string) {
     throw new io.cucumber.java.PendingException();
 }
 */
-@When("the patient did not visit the doctor on time")
+/*@When("the patient did not visit the doctor on time")
 public void the_patient_did_not_visit_the_doctor_on_time() {
     // Write code here that turns the phrase above into concrete actions
 	
@@ -71,7 +109,7 @@ public void there_is_registered_patient_with_username(String string) {
   //  throw new io.cucumber.java.PendingException();
 }*/
 
-@When("the patient visits the doctor at the appointed time")
+/*@When("the patient visits the doctor at the appointed time")
 public void the_patient_visits_the_doctor_at_the_appointed_time() {
     // Write code here that turns the phrase above into concrete actions
    // throw new io.cucumber.java.PendingException();
@@ -105,4 +143,4 @@ public void do_not_get_the_medicine() {
 	System.out.println(count);
 
    // throw new io.cucumber.java.PendingException();
-}}
+}}*/

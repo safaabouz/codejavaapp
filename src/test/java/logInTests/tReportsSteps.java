@@ -20,12 +20,7 @@ public class tReportsSteps {
 	String appointmentInfo;
 	
 	
-	/*@Given("that the admin with username {string} is logged in")
-	public void that_the_admin_with_username_is_logged_in(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-		admin= MyClinic.getAdmin(string);
-	       admin.setLogState(true);	
-	       }*/
+	
 	
 @Given("the admin requests a report for all usernames")
 public void the_admin_requests_a_report_for_all_usernames() {

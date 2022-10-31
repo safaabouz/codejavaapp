@@ -11,4 +11,4 @@ Scenario: admin needs a report for a user appointments
     And the admin requests a report for patient "uu2020" appointments
     Then the appointments report will be generated successfully
        
-    
+    #

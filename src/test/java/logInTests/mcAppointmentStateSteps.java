@@ -7,6 +7,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import clinic.Admin;
 import clinic.Appointment;
 import clinic.PatientAppointment;
 
@@ -17,27 +18,25 @@ import io.cucumber.java.en.Then;
 
 public class mcAppointmentStateSteps {
 	
-	//Appointment app;
+
 	String myState;
 	boolean stateCheck;
-	boolean hasAppointments;
+	boolean noAppointments;
 	boolean appointmentIsToday=false;
 	LocalTime nowTime = LocalTime.now();
-	//LocalTime appTime = app.getLocalTime();
-	LocalDate nowDate=LocalDate.now();
-	//LocalDate appDate = app.getLocalDate();
-	//Boolean timeIsLate = nowTime.isAfter( appTime );
-	//Boolean dateIsLate = nowTime.isAfter( appTime );
-	List <PatientAppointment> patientAppointments = new ArrayList <PatientAppointment>();
+	String userName;
+	Admin admin = new Admin();
+
 	
 	public int patientIndex;
 	int appointmentIndex;
 	
 	@Given("the patient with username {string} booked an appointment")
 	public void the_patient_with_username_booked_an_appointment(String string) {
+		userName = string;
 		patientIndex = MyClinic.findPatientIndex(string);
-		hasAppointments= MyClinic.patients.get(patientIndex).getAppointments().isEmpty();
-		assertFalse(hasAppointments);
+		noAppointments= MyClinic.patients.get(patientIndex).getAppointments().isEmpty();
+		assertFalse(noAppointments);
 		System.out.println("he has booked appointments");
 		
 		
@@ -48,20 +47,9 @@ public class mcAppointmentStateSteps {
 @Given("the appointment is today")
 public void the_appointment_is_today() {
     // Write code here that turns the phrase above into concrete actions
-	patientAppointments= MyClinic.patients.get(patientIndex).getAppointments();
-	for(int i=0;i<patientAppointments.size();i++)
-	 {  
-		
-		if(MyClinic.patients.get(patientIndex).getAppointments().get(i).getLocalDate().equals(nowDate)) {
-			appointmentIsToday=true;
-			appointmentIndex=i;
-			System.out.println("he has appointment Today");
-
-			break;
-			
-		}
-		
-	}
+	//patientAppointments= MyClinic.patients.get(patientIndex).getAppointments();
+	appointmentIndex =admin.checkPatiantTodaysAppointments(userName);
+	if(appointmentIndex == -1) appointmentIsToday=false;
 }
 
 	@Given("the patient came to his appointment")
@@ -75,14 +63,15 @@ public void the_appointment_is_today() {
 
 	@Then("the visit state will be converted to visited")
 	public void the_visit_state_will_be_converted_to_visited() {
-		MyClinic.patients.get(patientIndex).getAppointments().get(appointmentIndex).setState(PatientAppointmentState.Visited);
-		System.out.println(" convert to Visited ");
+		admin.setAppointmentState(appointmentIndex,userName);
+		
 
 	}
 
 	@Then("the visit notes {string} will be added")
 	public void the_visit_notes_will_be_added(String string) {
 	    // Write code here that turns the phrase above into concrete actions
+		
 		MyClinic.patients.get(patientIndex).getAppointments().get(appointmentIndex).setNote(string);
 		System.out.println("note added");
 

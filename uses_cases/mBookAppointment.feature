@@ -29,7 +29,7 @@ Then error massage "It's already booked by another patient, try to book a new on
 
 Scenario: the appointment booked successfully
 Given that the user with username "uu2020" is logged in
-And there is an appintment for doctor "1111" on "2022-10-31" at "12:00"
+And there is an appintment for doctor "1111" on "2022-11-01" at "11:00"
 When the user tries to book this appointment
 And the user dosen't have any appointments at the same time
 Then this appointment will booked successfully		
@@ -39,11 +39,18 @@ Given that the user with username "uu2020" is logged in
 And there is an appintment for doctor "2364" on "2022-11-02" at "12:30"
 When the user tries to book this appointment
 And the user dosen't have any appointments at the same time
-Then this appointment will booked successfully			
+Then this appointment will booked successfully		
+
+Scenario: the appointment booked successfully
+Given that the user with username "uu2020" is logged in
+And there is an appintment for doctor "1111" on "2022-11-01" at "12:00"
+When the user tries to book this appointment
+And the user dosen't have any appointments at the same time
+Then this appointment will booked successfully		
 
 Scenario: book multiple appointments at the same time
 Given that the user with username "uu2020" is logged in
-And there is an appintment for doctor "2364" on "2022-10-31" at "12:00"
+And there is an appintment for doctor "2364" on "2022-11-01" at "12:00"
 When the user tries to book this appointment
 And the user dosen't have any appointments at the same time
 Then conflict in appointments will occurs

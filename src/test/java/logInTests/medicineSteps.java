@@ -65,7 +65,7 @@ public class medicineSteps {
 		String	pass=string2;
 		String	 username=string;
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    //throw new io.cucumber.java.PendingException();
 	}
 
 	@Then("the patient get medicine succeeds")
@@ -85,14 +85,14 @@ public class medicineSteps {
 	
 			
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	  //  throw new io.cucumber.java.PendingException();
 	}
 
 	@Given("The patient is failed entered")
 	public void the_patient_is_failed_entered() {
 		assertFalse(patient.getLogState());
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    //throw new io.cucumber.java.PendingException();
 	}
 
 	@Then("the patient don't get medicine succeeds and return null")
@@ -100,7 +100,7 @@ public class medicineSteps {
 		System.out.println("No get medicine for this patient");
 		   assertNull(medicines);
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	//    throw new io.cucumber.java.PendingException();
 	}
 	
 	
@@ -222,9 +222,9 @@ public void i_have_the_following_medicine_in_my_clinic_by_list(io.cucumber.datat
     
     
     for (List<String> columns : rows) {
-    	Patient P =new Patient(columns.get(0), columns.get(1));
-    	MyClinic.patients.add(P);
-    	int type = P.getType();
+    	Medicine m =new Medicine(columns.get(0), columns.get(1));
+    	MyClinic.medicines.add(m);
+    //	int type = m.getType();
     	}
    // throw new io.cucumber.java.PendingException();}
 }

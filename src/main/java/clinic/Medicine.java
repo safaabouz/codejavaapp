@@ -20,6 +20,11 @@ public class Medicine {
 	public Medicine() {
 		// TODO Auto-generated constructor stub
 	}
+	public Medicine(String med_name, String comp_name) {
+		super();
+		this.med_name = med_name;
+		this.comp_name = comp_name;
+	}
 
 }
 

@@ -14,6 +14,7 @@ import clinic.Appointment;
 import clinic.MyClinic;
 import clinic.Patient;
 import clinic.PatientAppointment;
+import clinic.PatientAppointmentState;
 import clinic.User;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -24,7 +25,11 @@ public class trackAppointmentsSteps {
 	Admin admin = new Admin();
 	Patient patient  = new Patient();
 	//public MyClinic c = new MyClinic();
-	List <PatientAppointment> appointments  = new ArrayList<PatientAppointment>();;
+	List <PatientAppointment> appointments  = new ArrayList<PatientAppointment>();
+	List <PatientAppointment> bookedAppointments  = new ArrayList<PatientAppointment>();
+	List <PatientAppointment> visitedAppointments  = new ArrayList<PatientAppointment>();
+
+
 	
 	   
 	   /* public void trackAppointmentsSteps() {
@@ -55,28 +60,69 @@ public class trackAppointmentsSteps {
 	public void the_admin_tries_to_reache_the_patient_appointments() {
 	    // Write code here that turns the phrase above into concrete actions
 	  appointments = patient.getAppointments();
+	  for(int i=0;i< appointments.size();i++) {
+		  if(appointments.get(i).getState().equals(PatientAppointmentState.Booked)) {
+			  
+		  
+			  bookedAppointments.add(appointments.get(i));
+	  }
+	  }
 	}
 
 	@Then("he will get a null value")
 	public void he_will_get_a_null_value() {
 		boolean isNull = false;
 		System.out.println("No Booked Appointments for this patient");
-		if(appointments.isEmpty()) isNull=true;
+		if(bookedAppointments.isEmpty()) isNull=true;
 	    assertTrue(isNull);
 	}
 	@Then("he will get a record for the patient")
 	public void he_will_get_a_record_for_the_patient() {
 	    // Write code here that turns the phrase above into concrete actions
 		boolean isNull = false;
-		if(appointments.isEmpty()) isNull=true;
+		if(bookedAppointments.isEmpty()) isNull=true;
 	    assertFalse(isNull);
 		System.out.println("This is the Appointments List for this patient");
-		for(int i=0;i<appointments.size();i++) {
-			System.out.print(appointments.get(i).getLocalDate());
+		for(int i=0;i<bookedAppointments.size();i++) {
+			System.out.print(bookedAppointments.get(i).getLocalDate());
 			System.out.print("          ");
-			System.out.println(appointments.get(i).getLocalTime());
+			System.out.println(bookedAppointments.get(i).getLocalTime());
 		}
 		
 		
 	}
+	
+	
+	@Given("that the admin with username {string} is logged in")
+	public void that_the_admin_with_username_is_logged_in(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+		admin= MyClinic.getAdmin(string);
+	       admin.setLogState(true);	}
+
+	@Given("there is a registered patient with the username {string}")
+	public void there_is_a_registered_patient_with_the_username(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+    	patient= MyClinic.getPatient(string);
+	}
+
+	
+	@When("the admin tries to reache the patient visited appointments")
+	public void the_admin_tries_to_reache_the_patient_visited_appointments() {
+	    // Write code here that turns the phrase above into concrete actions
+		appointments = patient.getAppointments();
+		  for(int i=0;i< appointments.size();i++) {
+			  if(appointments.get(i).getState().equals(PatientAppointmentState.Booked)) {
+				  
+			  
+				  visitedAppointments.add(appointments.get(i));
+		  }
+		  }	}
+
+	@Then("he will get a record for his visited appointments")
+	public void he_will_get_a_record_for_his_visited_appointments() {
+	    // Write code here that turns the phrase above into concrete actions
+		boolean isNull = false;
+		if(visitedAppointments.isEmpty()) isNull=true;
+	    assertFalse(isNull);	}
+
 }

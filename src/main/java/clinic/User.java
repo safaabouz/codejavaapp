@@ -7,6 +7,12 @@ public class User {
 	boolean logState;
 
 	
+public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
 public User(String username1,String pass1){
 	
 	username=username1;

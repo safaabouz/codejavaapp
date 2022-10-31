@@ -12,6 +12,24 @@ public class Appointment {
 	String note;
 	Doctor doctor;
 	
+	public LocalDate getDate() {
+		return date;
+	}
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}
+	public LocalTime getTime() {
+		return time;
+	}
+	public void setTime(LocalTime time) {
+		this.time = time;
+	}
+	public Doctor getDoctor() {
+		return doctor;
+	}
+	public void setDoctor(Doctor doctor) {
+		this.doctor = doctor;
+	}
 	public Appointment(LocalDate date, LocalTime time, String note, Doctor doctor) {
 		this.date = date;
 		this.time = time;

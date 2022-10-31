@@ -125,7 +125,6 @@ public static Patient getmedicine(String med_name, String med_cost,String userna
 	Medicine m=null;
 	
 	 
-//	int available = -1;
     for(int i=0;i<medicines.size(); i++) {
     	for(int j=0;j<patients.size(); j++) {
     	if(patients.get(j).pass.equals(pass) && patients.get(j).username.equals(username)&&medicines.get(i).med_cost.equals(med_cost) 

@@ -11,5 +11,13 @@ public class PatientAppointment extends Appointment{
 		super(date, time, doctor);
 		this.state = state;
 	}
+
+	public PatientAppointmentState getState() {
+		return state;
+	}
+
+	public void setState(PatientAppointmentState state) {
+		this.state = state;
+	}
 	
 }

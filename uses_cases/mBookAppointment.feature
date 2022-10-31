@@ -11,7 +11,7 @@ And these already booked appointments
 		
 Scenario: the doctor is on his off day
 Given that the user with username "user12" is logged in
-And there is an appintment for doctor "1111" on "2022-10-30" at "10:00"
+And there is an appintment for doctor "1111" on "2022-11-05" at "10:00"
 When the user tries to book this appointment
 Then error massage "This doctor is on his off day" should display 	
 	
@@ -29,7 +29,7 @@ Then error massage "It's already booked by another patient, try to book a new on
 
 Scenario: the appointment booked successfully
 Given that the user with username "uu2020" is logged in
-And there is an appintment for doctor "1111" on "2022-11-02" at "12:00"
+And there is an appintment for doctor "1111" on "2022-10-31" at "12:00"
 When the user tries to book this appointment
 And the user dosen't have any appointments at the same time
 Then this appointment will booked successfully		
@@ -43,7 +43,7 @@ Then this appointment will booked successfully
 
 Scenario: book multiple appointments at the same time
 Given that the user with username "uu2020" is logged in
-And there is an appintment for doctor "2364" on "2022-11-02" at "12:00"
+And there is an appintment for doctor "2364" on "2022-10-31" at "12:00"
 When the user tries to book this appointment
 And the user dosen't have any appointments at the same time
 Then conflict in appointments will occurs

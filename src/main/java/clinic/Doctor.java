@@ -40,7 +40,7 @@ public class Doctor extends User {
 			else numOfApp=(hour*2);
 	LocalDate dateOfAppointment = LocalDate.now();	
 	
-	for(int i =0;i<7;i++) { // appointments for a week
+	for(int i =0;i<9;i++) { // appointments for a week
 		if(isOffDay(dateOfAppointment)) {
 			dateOfAppointment = dateOfAppointment.plusDays(1);
 			continue;

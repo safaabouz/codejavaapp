@@ -20,8 +20,6 @@ public class tReportsSteps {
 	String appointmentInfo;
 	
 	
-	
-	
 @Given("the admin requests a report for all usernames")
 public void the_admin_requests_a_report_for_all_usernames() {
     // Write code here that turns the phrase above into concrete actions

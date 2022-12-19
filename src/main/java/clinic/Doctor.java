@@ -90,6 +90,26 @@ public class Doctor extends User {
     	this.createAppointmentList();
 		
 	}
+	public boolean avilableAppointment(String newDateApp,String oldTimeApp) {
+	
+		int dAppoitmentIndex =this.findAppointment(	LocalDate.parse(newDateApp),LocalTime.parse(oldTimeApp));
+		if(dAppoitmentIndex != -1 && !this.appointments.get(dAppoitmentIndex).state.equals(DoctorAppointmentState.Booked)){
+		//	System.out.println("patiaian ava");
+			return true;
+		}
+		//System.out.println("patiaian ava");
+		return false;
+		
+	}
+	
+	public void updateAppointment(String newDateApp, String newTimeApp, String oldTimeApp, String oldDateApp) {
+		// TODO Auto-generated method stub
+		int dAppoitmentIndex =this.findAppointment(	LocalDate.parse(newDateApp),LocalTime.parse(newTimeApp));
+		this.appointments.get(dAppoitmentIndex).state=DoctorAppointmentState.Booked;
+		int oldApp =this.findAppointment(LocalDate.parse(oldDateApp), LocalTime.parse(oldTimeApp));
+		this.appointments.get(oldApp).state=DoctorAppointmentState.Avialable;
+		
+	}
 
 
 }

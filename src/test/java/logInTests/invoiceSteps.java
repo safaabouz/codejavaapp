@@ -31,25 +31,25 @@ public class invoiceSteps {
 	@Given("that the User have an appointment on {string}")
 	public void that_the_user_have_an_appointment_on(String string) {
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	   // throw new io.cucumber.java.PendingException();
 	}
 
 	@Given("the appointment has {string} service")
 	public void the_appointment_has_service(String string) {
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    //throw new io.cucumber.java.PendingException();
 	}
 
 	@Then("the invoice value is the sum of doctorcost and medcost")
 	public void the_invoice_value_is_the_sum_of_doctorcost_and_medcost() {
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    //throw new io.cucumber.java.PendingException();
 	}
 
 	@Then("the invoice generated successfully")
 	public void the_invoice_generated_successfully() {
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
+	    //throw new io.cucumber.java.PendingException();
 	}
 
 	@Then("the invoice value is the doctorcost {string}")

@@ -22,4 +22,3 @@ Scenario: patient can get medicine
 	  | Antifungal   | AbbVie  |28/07/2025|60 |150|
 	And The patient is failed entered
 	Then the patient don't get medicine succeeds and return null
-	

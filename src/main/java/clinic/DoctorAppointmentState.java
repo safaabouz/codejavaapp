@@ -13,7 +13,7 @@ public enum DoctorAppointmentState {
         case Avialable :
             return "Avialable";
         }
-        return null;
+        return "";
     }
 	 
 	 

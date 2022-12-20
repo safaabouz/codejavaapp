@@ -14,7 +14,7 @@ public enum PatientAppointmentState {
         case Missed :
             return "Missed";
         }
-        return null;
+        return "";
     }
 	 
 	    public static PatientAppointmentState valueOf(Class<PatientAppointmentState> enumType, String value){

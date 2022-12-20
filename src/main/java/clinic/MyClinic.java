@@ -135,7 +135,6 @@ public static Patient getmedicine(String med_name, String med_cost,String userna
     		break;
     		}
     	m=medicines.get(i);
-    	break;
     }
     }
     if(m== null) {

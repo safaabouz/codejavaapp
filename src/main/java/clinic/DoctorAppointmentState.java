@@ -5,7 +5,7 @@ public enum DoctorAppointmentState {
 	Avialable;
 
 
-   
+	@Override
 	 public String toString(){
         switch(this){
         case BookedUp:

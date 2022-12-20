@@ -11,7 +11,6 @@ public class Admin extends User {
 	}
 
 	public Admin() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public void addDoctorsInformation(io.cucumber.datatable.DataTable dataTable) {
@@ -52,7 +51,7 @@ public class Admin extends User {
 			
 			if(MyClinic.patients.get(patientIndex).getAppointments().get(i).getLocalDate().equals(LocalDate.now())) {
 				appointmentIndex = i;	
-				System.out.println("he has appointment Today");
+				System.err.println("he has appointment Today");
 				break;
 				
 			}
@@ -65,44 +64,44 @@ public class Admin extends User {
 	public void setAppointmentState(int appointmentIndex, String userName) {
 		int patientIndex =MyClinic.findPatientIndex(userName);
 		MyClinic.patients.get(patientIndex).getAppointments().get(appointmentIndex).setState(PatientAppointmentState.Visited);
-		System.out.println(" convert to Visited ");
+		System.err.println(" convert to Visited ");
 		
 	}
 
 	public void displayAllDoctors() {
-		System.out.println("\n************************ Doctors List ************************");
-		System.out.println("Doctor UserName|Start Hour|End Hour| Off Days         |");
+		System.err.println("\n************************ Doctors List ************************");
+		System.err.println("Doctor UserName|Start Hour|End Hour| Off Days         |");
 		for(int i=0;i<MyClinic.doctors.size();i++) {
 		//	MyClinic.doctors.
 			
 			
 			StringBuilder str = new StringBuilder(MyClinic.doctors.get(i).username);
 			str.setLength(15);
-			System.out.print(str + "|");
+			System.err.print(str + "|");
 			str = new StringBuilder(MyClinic.doctors.get(i).startHour.toString());
 			str.setLength(10);
-			System.out.print(str + "|");
+			System.err.print(str + "|");
 			str = new StringBuilder(MyClinic.doctors.get(i).endHour.toString());
 			str.setLength(8);
-			System.out.print(str + "|");
+			System.err.print(str + "|");
 			str = new StringBuilder(MyClinic.doctors.get(i).offDays.toString());
 			str.setLength(17);
-			System.out.println(str + "]|");
+			System.err.println(str + "]|");
 			
 		}
 		
 	}
 
 	public void displayAllPatients() {
-		System.out.println("\n************************ Patients List ************************");
-		System.out.println("Patient UserName");
+		System.err.println("\n************************ Patients List ************************");
+		System.err.println("Patient UserName");
 		for(int i=0;i<MyClinic.patients.size();i++) {
 		//	MyClinic.doctors.
 			
 			
 			StringBuilder str = new StringBuilder(MyClinic.patients.get(i).username);
 			str.setLength(16);
-			System.out.println(str);
+			System.err.println(str);
 			
 			
 		}

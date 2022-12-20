@@ -11,7 +11,6 @@ public class Patient extends User {
 	
 	public List<PatientAppointment> appointments = new ArrayList<PatientAppointment>();
 	List<Appointment> visits;
-	List<Medicine> medicines;
 
 	public Contact contact;
 

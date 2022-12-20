@@ -75,7 +75,7 @@ public class mBookAppointmentSteps {
 		//isPast= 
 			//	LocalTime.now().isAfter(LocalTime.parse(timeString));
 		if(appointmentIndex != -1) {
-			if(MyClinic.doctors.get(doctorIndex).appointments.get(appointmentIndex).getState() == DoctorAppointmentState.Booked)
+			if(MyClinic.doctors.get(doctorIndex).appointments.get(appointmentIndex).getState() == DoctorAppointmentState.BookedUp)
 			isBooked= true;
 		}
 	}
@@ -89,8 +89,12 @@ public class mBookAppointmentSteps {
 	@Then("error massage {string} should display")
 	public void error_massage_should_display(String string) {
 	    // Write code here that turns the phrase above into concrete actions
-	
-	 try {
+		boolean appointmentIndexFlag = false;
+		boolean bookError = false;
+	if(appointmentIndex == -1) appointmentIndexFlag=true ; 
+	if(appointmentIndexFlag || isPast || isBooked ) bookError = true;
+	assertTrue(bookError);
+	/* try {
 		 assertEquals(-1, appointmentIndex);
 	} catch (AssertionError e) {
 		try {
@@ -98,7 +102,7 @@ public class mBookAppointmentSteps {
 		} catch (AssertionError e2) {
 			assertTrue(isBooked);
 		}
-	}
+	}*/
 	 System.out.println(string);
 	}
 	@When("the user dosen't have any appointments at the same time")

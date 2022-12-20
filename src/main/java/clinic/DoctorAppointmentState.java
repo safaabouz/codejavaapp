@@ -1,14 +1,14 @@
 package clinic;
 
 public enum DoctorAppointmentState {
-	Booked,
+	BookedUp,
 	Avialable;
 
 
    
 	 public String toString(){
         switch(this){
-        case Booked:
+        case BookedUp:
             return "Booked";
         case Avialable :
             return "Avialable";
@@ -21,8 +21,8 @@ public enum DoctorAppointmentState {
 	    public static DoctorAppointmentState valueOf(Class<DoctorAppointmentState> enumType, String value){
 	        if(value.equalsIgnoreCase(Avialable.toString()))
 	            return DoctorAppointmentState.Avialable;
-	        else if(value.equalsIgnoreCase(Booked.toString()))
-	            return DoctorAppointmentState.Booked;
+	        else if(value.equalsIgnoreCase(BookedUp.toString()))
+	            return DoctorAppointmentState.BookedUp;
 	   
 	        else
 	            return null;

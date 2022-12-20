@@ -32,7 +32,7 @@ public class Admin extends User {
 				LocalDate date = LocalDate.parse(dataTable.cell(i,1));
 				LocalTime time = LocalTime.parse(dataTable.cell(i,2));
 				int appIndex =MyClinic.doctors.get(doctorIndex).findAppointment(date,time);		
-				MyClinic.doctors.get(doctorIndex).appointments.get(appIndex).setState(DoctorAppointmentState.Booked);
+				MyClinic.doctors.get(doctorIndex).appointments.get(appIndex).setState(DoctorAppointmentState.BookedUp);
 				
 		}
 		
@@ -40,7 +40,7 @@ public class Admin extends User {
 
 	public void setDoctorAppointmentAsBooked(String userName1, int appointmentIndex) {
 		int doctorIndex = MyClinic.findDoctorIndex(userName1);
-		MyClinic.doctors.get(doctorIndex).appointments.get(appointmentIndex).setState(DoctorAppointmentState.Booked);
+		MyClinic.doctors.get(doctorIndex).appointments.get(appointmentIndex).setState(DoctorAppointmentState.BookedUp);
 		
 	}
 

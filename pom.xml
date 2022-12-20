@@ -4,7 +4,43 @@
   <artifactId>MyClinic</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
+  
+  
+  
+    <properties>
+<maven.compiler.source>8</maven.compiler.source>
+<maven.compiler.target>8</maven.compiler.target>
+</properties>
+
+
+  <build>
+  
+  <pluginManagement><plugins>
+
+  <plugin>
+  <groupId>org.sonarsource.scanner.maven</groupId>
+  <artifactId> sonar-maven-plugin</artifactId>
+ <version>3.7.0.1746</version>
+  </plugin>
+  </plugins></pluginManagement>
+
+<sourceDirectory>
+  src/main/java
+
+  </sourceDirectory>
+  <testSourceDirectory> src/teast/java </testSourceDirectory>
+
+  </build>
+  
+  
   <dependencies>
+  
+  
+  <dependency>
+<groupId>org.sonarsource.scanner.maven</groupId>
+<artifactId>sonar-maven-plugin</artifactId>
+<version>3.9.1.2184</version>
+</dependency>
   
     <dependency>
 		<groupId>io.cucumber</groupId>

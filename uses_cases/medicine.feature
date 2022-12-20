@@ -9,7 +9,7 @@
 #	  | Antipyretic  | Roche   |07/07/2023|180|
 #	  | Antifungal   | AbbVie  |28/07/2025|60 |
 #	And The patient is successfully entered
-#	And the information of that patient is "user12" , "12admina" respectively
+#   And the information of that patient is "user12" , "12admina" respectively
 #	Then the patient get medicine succeeds
 #	
 #	
@@ -22,4 +22,4 @@
 #	  | Antifungal   | AbbVie  |28/07/2025|60 |150|
 #	And The patient is failed entered
 #	Then the patient don't get medicine succeeds and return null
-#	
+#

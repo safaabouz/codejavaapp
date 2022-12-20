@@ -50,6 +50,8 @@ public void the_appointment_is_today() {
 	//patientAppointments= MyClinic.patients.get(patientIndex).getAppointments();
 	appointmentIndex =admin.checkPatiantTodaysAppointments(userName);
 	if(appointmentIndex == -1) appointmentIsToday=false;
+	else appointmentIsToday=true;
+	System.out.println("\nappointmentIsToday  " + appointmentIsToday);
 }
 
 	@Given("the patient came to his appointment")

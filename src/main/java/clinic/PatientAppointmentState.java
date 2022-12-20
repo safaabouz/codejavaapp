@@ -25,6 +25,7 @@ public enum PatientAppointmentState {
 	        else if(value.equalsIgnoreCase(Missed.toString()))
 	            return PatientAppointmentState.Missed;
 	        else
+	        	
 	            return null;
 	    }
 

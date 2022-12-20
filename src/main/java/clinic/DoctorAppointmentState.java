@@ -23,7 +23,6 @@ public enum DoctorAppointmentState {
 	            return DoctorAppointmentState.Avialable;
 	        else if(value.equalsIgnoreCase(BookedUp.toString()))
 	            return DoctorAppointmentState.BookedUp;
-	   
 	        else
 	            return null;
 	    

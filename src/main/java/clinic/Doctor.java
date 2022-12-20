@@ -3,12 +3,9 @@ package clinic;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-import javax.swing.text.StyledEditorKit.ForegroundAction;
 
 public class Doctor extends User {
 
@@ -83,7 +80,7 @@ public class Doctor extends User {
 		return appIndex;
 	}
 	public void setData(String cell, String cell2, String cell3) {
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm");
+		//DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm");
 		this.startHour = LocalTime.parse(cell);
     	this.endHour = LocalTime.parse(cell2);
     	this.setOffDays(cell3);

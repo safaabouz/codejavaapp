@@ -8,7 +8,7 @@ public enum DoctorAppointmentState {
    
 	 public String toString(){
         switch(this){
-        case Booked :
+        case Booked:
             return "Booked";
         case Avialable :
             return "Avialable";

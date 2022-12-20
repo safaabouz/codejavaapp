@@ -51,18 +51,12 @@ public class Doctor extends User {
 		}
 		dateOfAppointment = dateOfAppointment.plusDays(1);
 	}
-	/*	System.out.println(numOfApp);
-		for(int i =0;i<this.appointments.size();i++) {
-			System.out.println( "time  " + this.appointments.get(i).time);
-			System.out.println( "date " + this.appointments.get(i).date);
-		}*/
+	
 	}
 	private boolean isOffDay(LocalDate dateOfAppointment) {
 		boolean isOff = false;
 		for(int i=0;i<offDays.size();i++) {
-			//System.out.println("date of app"+dateOfAppointment.getDayOfWeek());
-			//System.out.println("off days"+offDays.get(i));
-			if(dateOfAppointment.getDayOfWeek().equals(offDays.get(i))) {
+				if(dateOfAppointment.getDayOfWeek().equals(offDays.get(i))) {
 				isOff = true;
 				break;
 			}
@@ -80,7 +74,6 @@ public class Doctor extends User {
 		return appIndex;
 	}
 	public void setData(String cell, String cell2, String cell3) {
-		//DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm");
 		this.startHour = LocalTime.parse(cell);
     	this.endHour = LocalTime.parse(cell2);
     	this.setOffDays(cell3);
@@ -91,16 +84,13 @@ public class Doctor extends User {
 	
 		int dAppoitmentIndex =this.findAppointment(	LocalDate.parse(newDateApp),LocalTime.parse(oldTimeApp));
 		if(dAppoitmentIndex != -1 && !this.appointments.get(dAppoitmentIndex).state.equals(DoctorAppointmentState.BookedUp)){
-		//	System.out.println("patiaian ava");
 			return true;
 		}
-		//System.out.println("patiaian ava");
 		return false;
 		
 	}
 	
 	public void updateAppointment(String newDateApp, String newTimeApp, String oldTimeApp, String oldDateApp) {
-		// TODO Auto-generated method stub
 		int dAppoitmentIndex =this.findAppointment(	LocalDate.parse(newDateApp),LocalTime.parse(newTimeApp));
 		this.appointments.get(dAppoitmentIndex).state=DoctorAppointmentState.BookedUp;
 		int oldApp =this.findAppointment(LocalDate.parse(oldDateApp), LocalTime.parse(oldTimeApp));

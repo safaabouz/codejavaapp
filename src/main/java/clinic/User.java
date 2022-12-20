@@ -28,20 +28,20 @@ public void setLogState(boolean b) {
 }
 public void login() {
 if(this.getLogState())	{
-	System.out.println("You are already Loged in");
+	System.err.println("You are already Loged in");
 }
 else {	
 	this.setLogState(true);
 	int type =this.getType();
 	switch(type) {
 	case 1:
-		System.out.println("logging in into Admin Page");
+		System.err.println("logging in into Admin Page");
 		break;
 	case 2:
-		System.out.println("logging in into Doctor Page");
+		System.err.println("logging in into Doctor Page");
 		break;	
 	case 3:
-		System.out.println("logging in into Patient Page");
+		System.err.println("logging in into Patient Page");
 		break;
 	}
 	}
@@ -91,7 +91,7 @@ private boolean isPatientFormate() {
 		}
 public void logout() {
 	// TODO Auto-generated method stub
-	System.out.println("This User is logging out");	
+	System.err.println("This User is logging out");	
 }
 
 }

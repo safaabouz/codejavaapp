@@ -2,9 +2,7 @@ package clinic;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Iterator;
 
-import io.cucumber.datatable.DataTable;
 
 public class Admin extends User {
 

@@ -1,10 +1,8 @@
 package clinic;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 
-import javax.print.attribute.standard.DateTimeAtCompleted;
 
 public class Appointment {
 	LocalDate date ;

@@ -18,7 +18,7 @@ public enum DoctorAppointmentState {
 	 
 	 
 	 
-	    public static DoctorAppointmentState valueOf(Class<DoctorAppointmentState> enumType, String value){
+	    public static DoctorAppointmentState doctorAppointmentState1 (String value){
 	        if(value.equalsIgnoreCase(Avialable.toString()))
 	            return DoctorAppointmentState.Avialable;
 	        else if(value.equalsIgnoreCase(BookedUp.toString()))

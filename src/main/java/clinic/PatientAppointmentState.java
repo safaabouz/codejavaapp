@@ -17,7 +17,7 @@ public enum PatientAppointmentState {
         return "";
     }
 	 
-	    public static PatientAppointmentState valueOf(Class<PatientAppointmentState> enumType, String value){
+	    public static PatientAppointmentState patientAppointmentState (String value){
 	        if(value.equalsIgnoreCase(Visited.toString()))
 	            return PatientAppointmentState.Visited;
 	        else if(value.equalsIgnoreCase(Booked.toString()))

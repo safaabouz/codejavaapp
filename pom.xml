@@ -5,65 +5,32 @@
   <version>0.0.1-SNAPSHOT</version>
   
   
-  <properties>
+  
+  
+    <properties>
 <maven.compiler.source>8</maven.compiler.source>
 <maven.compiler.target>8</maven.compiler.target>
 </properties>
-  
-  
+
+
   <build>
   
-  
-  <sourceDirectory>
-  src/main/java
-  
-  </sourceDirectory>
-  <testSourceDirectory> src/teast/java </testSourceDirectory>
-  
-  
-  
- <pluginManagement> 
- <plugins> 
- <plugin>
- <artifactId> maven-surefire-plugin</artifactId>
-  <version> 2.22.2 </version>
-  <configuration> </configuration>
- </plugin>
+  <pluginManagement><plugins>
 
-   <plugin>
-   <groupId> org.jacoco</groupId>
-     <artifactId>jacoco-maven-plugin</artifactId>
-     <executions>
-     <execution>
-     <goals>
-     
-     <goal> prepare-agent</goal>
-     </goals>
-     </execution>
-    
-     <execution>
-     <id>report </id>
-     <phase>>prepare-package</phase>
-     <goals>
-     <goal>>report</goal></goals>
-     </execution>
-      </executions>
-   </plugin>
-    
   <plugin>
   <groupId>org.sonarsource.scanner.maven</groupId>
   <artifactId> sonar-maven-plugin</artifactId>
  <version>3.7.0.1746</version>
   </plugin>
-  
- </plugins>
- </pluginManagement>
- </build>
-  
-  
- 
-  
+  </plugins></pluginManagement>
 
+<sourceDirectory>
+  src/main/java
+
+  </sourceDirectory>
+  <testSourceDirectory> src/teast/java </testSourceDirectory>
+
+  </build>
   
   
   <dependencies>
@@ -74,7 +41,6 @@
 <artifactId>sonar-maven-plugin</artifactId>
 <version>3.9.1.2184</version>
 </dependency>
-
   
     <dependency>
 		<groupId>io.cucumber</groupId>

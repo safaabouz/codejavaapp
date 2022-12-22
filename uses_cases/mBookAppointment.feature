@@ -4,8 +4,8 @@ Description:Each Doctor can receive new appointment evrey half hour
 Background: booking
 
 Given I have these Doctors in my Clinic
-		| 1111 | 10:00 | 17:00 | Saturday,Sunday |
-		| 2364 | 12:00 | 18:00 | Thursday,Friday |
+		| 1111 | 10:00 | 23:00 | Saturday,Sunday |
+		| 2364 | 12:00 | 23:00 | Thursday,Friday |
 And these already booked appointments 
 		| 1111 | 2022-12-23 | 10:30 |	
 		
@@ -43,14 +43,14 @@ Then this appointment will booked successfully
 
 Scenario: the appointment booked successfully
 Given that the user with username "uu2020" is logged in
-And there is an appintment for doctor "1111" on "2022-12-20" at "16:30"
+And there is an appintment for doctor "1111" on "2022-12-22" at "11:30"
 When the user tries to book this appointment
 And the user dosen't have any appointments at the same time
 Then this appointment will booked successfully		
 
 Scenario: book multiple appointments at the same time
 Given that the user with username "uu2020" is logged in
-And there is an appintment for doctor "2364" on "2022-12-20" at "16:30"
+And there is an appintment for doctor "2364" on "2022-12-22" at "11:30"
 When the user tries to book this appointment
 And the user dosen't have any appointments at the same time
 Then conflict in appointments will occurs
